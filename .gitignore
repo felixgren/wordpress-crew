@@ -1,7 +1,7 @@
 languages
-mu-plugins/*
+!mu-plugins/*
 !mu-plugins/mu-plugins.php
-plugins/*
+!plugins/*
 !plugins/index.php
 upgrade
 uploads
