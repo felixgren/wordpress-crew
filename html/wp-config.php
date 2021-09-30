@@ -85,6 +85,7 @@ define( 'LOGGED_IN_SALT',   getenv_docker('WORDPRESS_LOGGED_IN_SALT',   '491d7c9
 define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       'acfe5c672542d9807f14a5ad9acaa65f97bd21c6') );
 // (See also https://wordpress.stackexchange.com/a/152905/199287)
 
+
 /**#@-*/
 
 /**
@@ -94,6 +95,7 @@ define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       'acfe5c6
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
+
 
 /**
  * For developers: WordPress debugging mode.
@@ -108,6 +110,7 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
+
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -130,4 +133,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /** Sets up WordPress vars and included files. */
+
 require_once ABSPATH . 'wp-settings.php';
