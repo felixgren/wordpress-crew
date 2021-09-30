@@ -1,5 +1,11 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
+<<<<<<< HEAD
+/******/ 	
+/******/ 	
+/******/ })()
+;
+=======
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/editor.scss":
@@ -253,3 +259,4 @@ __webpack_require__.r(__webpack_exports__);
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
+>>>>>>> 9c635eae272298cb57676a57d851e90b7de612e3
