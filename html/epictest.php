@@ -1,6 +1,6 @@
 <?php
 
 echo 'Hellooooo!!!';
-echo 'wordpress is the best platform ever! so intuitive, so easy!'
+echo 'we dont like you very much wordpress'
 
 ?>
