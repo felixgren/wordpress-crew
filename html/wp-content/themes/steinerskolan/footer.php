@@ -1,9 +1,16 @@
 
 <footer >
-  <div class="container">
+  <div class="footer-container">
       
       <div class="footer-links"> 
-          
+        <h4> Länkar </h4> 
+        <p> <a href="">Intranätet Idunsoft </a> </p> 
+        <a href="">Ansök om plats </a>
+        <a href="">Facebook </a>
+        <a href="">Instagram </a>
+        
+      </div> 
+        
       <?php /* if (get_field('facebook_url', 'option')): ?>
             <a class="text-decoration-none" href="<?php the_field('facebook_url', 'option');?>">
               <img src="<?=get_template_directory_uri();?>/assets/images/facebook-icon.png" />
@@ -16,11 +23,18 @@
             </a>
           <?php endif; */ ?> 
     
+        
+
+        <div class="footer-logo">
         </div> 
 
      <div class="contact-info"> 
        <h4>Kontakt </h4>
         <p> Rudolf Steinerskolan i Göteborg </p> 
+        <p> Tallhöjdsgatan 1 </p> 
+        <p> 416 74 Göteborg </p> 
+        <p> 031 21 46 32 </p> 
+        <a href=" mailto:rudolf@steinerskolan.se"> rudolf@steinerskolan.se</a> 
      </div> 
         
     

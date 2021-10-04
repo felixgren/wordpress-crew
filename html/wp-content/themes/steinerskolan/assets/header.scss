@@ -19,7 +19,7 @@ ul {
 .navbar-nav li {
   margin-left: 2rem;
 }
-a {
+.navbar-nav a {
   text-decoration: none;
   font-size: 2.4rem;
 }
@@ -29,6 +29,8 @@ a {
   align-self: left;
   align-content: center;
   float: left; */
+  text-decoration: none;
+  font-size: 2.4rem;
   margin-left: 1rem;
 }
 
