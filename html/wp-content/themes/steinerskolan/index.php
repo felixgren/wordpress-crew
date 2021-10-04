@@ -18,4 +18,3 @@
 </main>
 
 <?php get_footer(); ?>
-Terms

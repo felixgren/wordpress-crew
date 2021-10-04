@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= get_theme_file_uri('assets/header.scss') ?>">
     <link rel="stylesheet" href="<?= get_theme_file_uri('assets/style.scss') ?>">
+    <link rel="stylesheet" href="<?= get_theme_file_uri('assets/footer.scss') ?>">
     <?php wp_head(); ?>
 </head>
 
@@ -15,9 +16,8 @@
 
 <header> 
     <nav class="header-menu">
-       
-        <a classname="logo" href="<?= home_url(); ?>">Rudolf Steinerskolan</a>
         <ul> 
+            <a class="logo" href="<?= home_url(); ?>">Rudolf Steinerskolan</a>
             <div class="navbar-nav">
             <?php $currentPageId = $wp_query->queried_object_id;
              foreach ($menuItems as $item) : ?>

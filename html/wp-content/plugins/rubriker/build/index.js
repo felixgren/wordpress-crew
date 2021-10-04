@@ -35,10 +35,10 @@ __webpack_require__.r(__webpack_exports__);
     mediaID: {
       type: "number"
     },
-    content: {
+    body: {
       type: "array",
       source: "children",
-      selector: "headline"
+      selector: ".callout-body"
     }
   },
   edit: props => {
@@ -47,11 +47,11 @@ __webpack_require__.r(__webpack_exports__);
       attributes: {
         mediaID,
         rubrikPhotoURL,
-        content
+        body
       },
       setAttributes,
       rubrikImages,
-      headLine
+      isSelected
     } = props; // Functions
 
     const onSelectImage = media => {
@@ -61,15 +61,17 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    const onChangeContent = newContent => {
+    const onChangeContent = value => {
       setAttributes({
-        content: newContent
+        body: value
       });
     };
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "rubrikWrapper"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, isSelected && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
+      key: "controls"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "rubrikImages"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
       className: rubrikImages,
@@ -86,10 +88,11 @@ __webpack_require__.r(__webpack_exports__);
         alt: ("Upload headline Image", "headline image")
       }))
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-      tagName: "headline",
-      className: headLine,
+      tagName: "h3",
+      className: "callout-body",
+      placeholder: "Write a title…",
       onChange: onChangeContent,
-      value: content
+      value: body
     })));
   },
   save: props => {
@@ -97,24 +100,21 @@ __webpack_require__.r(__webpack_exports__);
     const {
       rubrikImages,
       attributes: {
-        rubrikPhotoURL
-      },
-      content
+        rubrikPhotoURL,
+        body
+      }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "rubrikWrapper"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "rubrikImages"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: rubrikImages
     }, rubrikPhotoURL && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "rubrikImages",
       src: rubrikPhotoURL,
       alt: ("headline Image", "image for headline")
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, " test "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
-      tagName: "headline",
-      value: content
-    })));
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+      tagName: "h3",
+      className: "callout-body",
+      value: body
+    }));
   }
 });
 

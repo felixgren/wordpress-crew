@@ -11,13 +11,26 @@
 	padding: 2px;
 }
 .rubrikWrapper {
-	width: 100%;
 	display: flex;
 	justify-content: center;
-	margin: 5rem;
+	flex-direction: column;
+	align-self: center;
+	margin: 2rem;
+	border-radius: 1rem;
+	background-color: white;
 }
 
 .rubrikImages {
-	width: 32.8rem;
-	height: 26rem;
+	align-self: center;
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
+}
+
+.callout-body {
+	font-size: 2rem;
+	align-self: center;
+	margin: 2rem;
 }

@@ -1,5 +1,5 @@
 import { registerBlockType } from "@wordpress/blocks";
-import { MediaUpload, RichText } from "@wordpress/block-editor";
+import { MediaUpload, RichText, BlockControls } from "@wordpress/block-editor";
 
 import { Button } from "@wordpress/components";
 
@@ -16,20 +16,21 @@ registerBlockType("create-block/rubriker", {
 		mediaID: {
 			type: "number",
 		},
-		content: {
+		body: {
 			type: "array",
 			source: "children",
-			selector: "headline",
+			selector: ".callout-body",
 		},
 	},
 
 	edit: (props) => {
 		// Attributes
 		const {
-			attributes: { mediaID, rubrikPhotoURL, content },
+			attributes: { mediaID, rubrikPhotoURL, body },
 			setAttributes,
 			rubrikImages,
-			headLine,
+
+			isSelected,
 		} = props;
 
 		// Functions
@@ -40,12 +41,13 @@ registerBlockType("create-block/rubriker", {
 			});
 		};
 
-		const onChangeContent = (newContent) => {
-			setAttributes({ content: newContent });
+		const onChangeContent = (value) => {
+			setAttributes({ body: value });
 		};
 
 		return (
 			<div className="rubrikWrapper">
+				{isSelected && <BlockControls key="controls"></BlockControls>}
 				<div className="rubrikImages">
 					<MediaUpload
 						className={rubrikImages}
@@ -69,10 +71,11 @@ registerBlockType("create-block/rubriker", {
 						)}
 					/>
 					<RichText
-						tagName="headline"
-						className={headLine}
+						tagName="h3"
+						className="callout-body"
+						placeholder={"Write a title…"}
 						onChange={onChangeContent}
-						value={content}
+						value={body}
 					></RichText>
 				</div>
 			</div>
@@ -82,24 +85,18 @@ registerBlockType("create-block/rubriker", {
 		// Attributes
 		const {
 			rubrikImages,
-			attributes: { rubrikPhotoURL },
-			content,
+			attributes: { rubrikPhotoURL, body },
 		} = props;
 		return (
 			<div className="rubrikWrapper">
-				<div className="rubrikImages">
-					<div className={rubrikImages}>
-						{rubrikPhotoURL && (
-							<img
-								className="rubrikImages"
-								src={rubrikPhotoURL}
-								alt={("headline Image", "image for headline")}
-							/>
-						)}
-					</div>
-					<h3> test </h3>
-					<RichText.Content tagName="headline" value={content} />
-				</div>
+				{rubrikPhotoURL && (
+					<img
+						className="rubrikImages"
+						src={rubrikPhotoURL}
+						alt={("headline Image", "image for headline")}
+					/>
+				)}
+				<RichText.Content tagName="h3" className="callout-body" value={body} />
 			</div>
 		);
 	},
