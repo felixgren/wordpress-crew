@@ -5,3 +5,5 @@ languages
 !plugins/index.php
 upgrade
 uploads
+node_modules
+vendor
