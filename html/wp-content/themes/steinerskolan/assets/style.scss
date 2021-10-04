@@ -1,4 +1,29 @@
-@import "variables";
+$font-color: #797979;
+$background-color: #66e3ff;
+@font-face {
+  font-family: "DMSans";
+  src: url(./fonts/DMSans-Medium.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Regular";
+  src: url(./fonts/DMSans-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Bold";
+  src: url(./fonts/DMSans-Bold.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-BoldItalic";
+  src: url(./fonts/DMSans-BoldItalic.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Italic";
+  src: url(./fonts/DMSans-Italic.woff2) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Italic";
+  src: url(./fonts/DMSans-MediumItalic.woff2) format("woff2");
+}
 
 * {
   font-size: 10px;
@@ -8,8 +33,8 @@
 }
 
 body {
-  font-family: "DM Sans";
+  font-family: "DMSans-Regular";
   width: 100%;
-  background-color: #66e3ff;
+  background-color: $background-color;
 }
 // need to change font"

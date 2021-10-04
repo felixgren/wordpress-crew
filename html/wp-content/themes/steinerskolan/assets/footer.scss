@@ -3,6 +3,22 @@
 footer {
   background: white;
   height: 25.6rem;
+
+  h4 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 2rem;
+    color: $font-color;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: $font-color;
+  }
 }
 
 .footer-container {
@@ -32,18 +48,4 @@ footer {
   text-align: right;
   align-self: center;
   padding-right: 4rem;
-}
-footer h4 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-}
-footer p {
-  font-size: 2rem;
-  color: #797979;
-}
-
-footer a {
-  text-decoration: none;
-  font-size: 2rem;
-  color: #797979;
 }
