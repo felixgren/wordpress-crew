@@ -1,12 +1,16 @@
 <footer>
   <div class="footer-container">
+    <button class="footer-button"><a href="example.com"> KONTAKT</a></button>
+    <div class="footer-icon-container"> <img class="footer-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/instagram.png" alt="school logo">
+      <img class="footer-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/facebook.png" alt="school logo">
+    </div>
 
     <div class="footer-links">
       <h4> Länkar </h4>
       <p> <a href="">Intranätet Idunsoft </a> </p>
       <a href="">Ansök om plats </a>
-      <a href="">Facebook </a>
-      <a href="">Instagram </a>
+      <a href="">Facebook <span class="dashicons dashicons-facebook"></span></a>
+      <a href="">Instagram <span class="dashicons dashicons-instagram"></span></a>
 
     </div>
 

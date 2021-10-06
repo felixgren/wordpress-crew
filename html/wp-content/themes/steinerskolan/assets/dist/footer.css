@@ -53,45 +53,106 @@ footer a {
   color: #797979;
 }
 
+/* Mobile */
 .footer-container {
-  background-color: white;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1;
-  height: 100%;
-}
-
-.footer-links {
-  grid-column: 1/3;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  grid-row: 1;
-  padding-left: 4rem;
-}
-
-.footer-logo {
-  grid-column: 2/3;
-  grid-row: 1;
+  height: 25.6rem;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
+}
+
+.footer-button {
+  width: 22rem;
+  height: 4.6rem;
+  border: none;
+  border-radius: 8rem;
+  background-color: #80c2ff;
   align-self: center;
-  padding-top: 5rem;
-  text-align: center;
+}
+.footer-button a {
+  color: black;
+}
+
+.footer-icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem;
+}
+.footer-icon-container img {
+  margin: 1rem;
+}
+
+.footer-links {
+  display: none;
+}
+
+.footer-logo {
+  display: none;
 }
 
 .footer-logo-image {
-  width: 70%;
-  align-self: center;
+  display: none;
 }
 
 .contact-info {
-  grid-column: 3/3;
-  grid-row: 1;
-  text-align: right;
-  align-self: center;
-  padding-right: 4rem;
+  display: none;
+}
+
+/* Dekstop */
+@media screen and (min-width: 700px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1;
+    height: 100%;
+  }
+
+  .footer-button {
+    display: none;
+  }
+
+  .footer-icon-container {
+    display: none;
+  }
+
+  .footer-links {
+    grid-column: 1/3;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    grid-row: 1;
+    padding-left: 4rem;
+    display: flex;
+  }
+
+  .footer-logo {
+    grid-column: 2/3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    padding-top: 5rem;
+    text-align: center;
+  }
+
+  .footer-logo-image {
+    width: 70%;
+    align-self: center;
+    display: block;
+  }
+
+  .contact-info {
+    grid-column: 3/3;
+    grid-row: 1;
+    text-align: right;
+    align-self: center;
+    padding-right: 4rem;
+    display: block;
+  }
 }
