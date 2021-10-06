@@ -19,7 +19,7 @@ services:
     container_name: wordpress
     ports:
       - "${PORT:-8000}:80"
-    volumes: ["./html:/var/www/html"]
+    volumes: ["./html:/var/www/html", "./upload.ini:/usr/local/etc/php/conf.d/uploads.ini"]
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
