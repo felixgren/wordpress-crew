@@ -1,1 +1,36 @@
-@font-face{font-family:DMSans;src:url(../fonts/DMSans-Medium.woff2?9d658f2da7d843a56ba90da2260c7461) format("woff2")}@font-face{font-family:DMSans-Regular;src:url(../fonts/DMSans-Regular.woff2?451a3489e84f3d1ec904b95b632cd3c4) format("woff2")}@font-face{font-family:DMSans-Bold;src:url(../fonts/DMSans-Bold.woff2?318e4ab1889b67f9a2915bc5993bde2c) format("woff2")}@font-face{font-family:DMSans-BoldItalic;src:url(../fonts/DMSans-BoldItalic.woff2?16c69457daa04b1b45978144a72a29fe) format("woff2")}@font-face{font-family:DMSans-Italic;src:url(../fonts/DMSans-Italic.woff2?6adf2fe78fe448ae66c4902b93bd06b2) format("woff2")}@font-face{font-family:DMSans-Italic;src:url(../fonts/DMSans-MediumItalic.woff2?f45ac9f0bfd9c5ec303504665eff109c) format("woff2")}*{color:#000;font-size:10px;margin:0;padding:0}body{background-color:#66e3ff;font-family:DMSans-Regular;width:100%}
+@font-face {
+  font-family: "DMSans";
+  src: url(../fonts/DMSans-Medium.woff2?9d658f2da7d843a56ba90da2260c7461) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Regular";
+  src: url(../fonts/DMSans-Regular.woff2?451a3489e84f3d1ec904b95b632cd3c4) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Bold";
+  src: url(../fonts/DMSans-Bold.woff2?318e4ab1889b67f9a2915bc5993bde2c) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-BoldItalic";
+  src: url(../fonts/DMSans-BoldItalic.woff2?16c69457daa04b1b45978144a72a29fe) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Italic";
+  src: url(../fonts/DMSans-Italic.woff2?6adf2fe78fe448ae66c4902b93bd06b2) format("woff2");
+}
+@font-face {
+  font-family: "DMSans-Italic";
+  src: url(../fonts/DMSans-MediumItalic.woff2?f45ac9f0bfd9c5ec303504665eff109c) format("woff2");
+}
+* {
+  font-size: 10px;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DMSans-Regular";
+  width: 100%;
+  background-color: #66e3ff;
+}
