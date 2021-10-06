@@ -7,5 +7,4 @@ Using Wordpress & Gutenberg
 
 - `$ npm install `
 - `$ npm run build `
-- `$ composer install `
 
