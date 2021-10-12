@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://c.tenor.com/46CnZ6Y_rlYAAAAC/moss-it-crowd.gif" width="100%"></a></p>
+<p align="center"><a href="" target="_blank"><img src="https://c.tenor.com/46CnZ6Y_rlYAAAAC/moss-it-crowd.gif" width="100%"></a></p>
 
 ## Steiner Skolan
 
@@ -11,7 +11,7 @@ This project it built using WordPress, Gutenberg, and sass. Designed in Figma.
 **Prerequisites**
 
 -   [UNIX based OS (mac, linux or WSL2 for windows)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
--   Docker
+-   [Docker](https://docs.docker.com/get-docker/)
 -   npm
 
 ### Setting up project
@@ -20,7 +20,6 @@ This project it built using WordPress, Gutenberg, and sass. Designed in Figma.
 git clone https://github.com/felixgren/wordpress-crew.git
 cd wordpress-crew
 npm install
-cp .env.example .env
 docker-compose up -d
 ```
 
