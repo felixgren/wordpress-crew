@@ -27,4 +27,12 @@ section {
   align-content: center;
 }
 
+@media screen and (min-width: 700px) {
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
+
 /*# sourceMappingURL=style-index.css.map*/

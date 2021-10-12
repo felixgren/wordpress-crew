@@ -22,3 +22,15 @@ section {
 	justify-content: center;
 	align-content: center;
 }
+
+@media screen and (min-width: 700px) {
+	section {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto;
+	}
+}
+
+// Text-block .textBlock
+//image block .imageBlock
+// button block .buttonBlock
