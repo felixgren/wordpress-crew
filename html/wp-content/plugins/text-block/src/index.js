@@ -15,14 +15,6 @@ import "./style.scss";
 
 registerBlockType("create-block/text-block", {
 	attributes: {
-		PhotoURL: {
-			type: "string",
-			selector: "img",
-			attribute: "src",
-		},
-		mediaID: {
-			type: "number",
-		},
 		body: {
 			type: "array",
 			source: "children",
@@ -33,20 +25,14 @@ registerBlockType("create-block/text-block", {
 	edit: (props) => {
 		// Attributes
 		const {
-			attributes: { mediaID, PhotoURL, body, alignment, title, optionalButton },
+			attributes: { body, title },
 			setAttributes,
-			pageImage,
 
 			isSelected,
 		} = props;
 
 		// Functions
-		const onSelectImage = (media) => {
-			setAttributes({
-				PhotoURL: media.url,
-				mediaID: media.id,
-			});
-		};
+
 		const onChangeTitle = (value) => {
 			setAttributes({ title: value });
 		};
@@ -83,7 +69,6 @@ registerBlockType("create-block/text-block", {
 	save: (props) => {
 		// Attributes
 		const {
-			pageImage,
 			attributes: { PhotoURL, body, title },
 		} = props;
 		return (

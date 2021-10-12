@@ -55,9 +55,9 @@ registerBlockType("create-block/page-block", {
 			attributes: { color },
 		} = props;
 		return (
-			<section style={{ backgroundColor: color }}>
+			<div style={{ backgroundColor: color }} className="pageWrap">
 				<InnerBlocks.Content />
-			</section>
+			</div>
 		);
 	},
 });

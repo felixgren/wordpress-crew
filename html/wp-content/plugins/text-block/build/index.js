@@ -27,14 +27,6 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("create-block/text-block", {
   attributes: {
-    PhotoURL: {
-      type: "string",
-      selector: "img",
-      attribute: "src"
-    },
-    mediaID: {
-      type: "number"
-    },
     body: {
       type: "array",
       source: "children",
@@ -45,24 +37,12 @@ __webpack_require__.r(__webpack_exports__);
     // Attributes
     const {
       attributes: {
-        mediaID,
-        PhotoURL,
         body,
-        alignment,
-        title,
-        optionalButton
+        title
       },
       setAttributes,
-      pageImage,
       isSelected
     } = props; // Functions
-
-    const onSelectImage = media => {
-      setAttributes({
-        PhotoURL: media.url,
-        mediaID: media.id
-      });
-    };
 
     const onChangeTitle = value => {
       setAttributes({
@@ -96,7 +76,6 @@ __webpack_require__.r(__webpack_exports__);
   save: props => {
     // Attributes
     const {
-      pageImage,
       attributes: {
         PhotoURL,
         body,

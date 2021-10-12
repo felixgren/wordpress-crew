@@ -53,6 +53,7 @@ p {
 @media screen and (min-width: 700px) {
   h1 {
     font-size: 6.4rem;
+    margin: 4rem 0 4rem 2rem;
   }
 }
 footer {

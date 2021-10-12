@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
         border
       },
       setAttributes,
-      pageButton,
+      buttonBlock,
       isSelected
     } = props; // Functions
 
@@ -157,7 +157,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "pageButton",
+      className: "buttonBlock",
       style: {
         backgroundColor: color,
         borderColor: border

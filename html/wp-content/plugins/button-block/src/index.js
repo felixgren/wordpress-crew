@@ -39,7 +39,7 @@ registerBlockType("create-block/button-block", {
 		const {
 			attributes: { title, url, color, border },
 			setAttributes,
-			pageButton,
+			buttonBlock,
 			isSelected,
 		} = props;
 
@@ -108,7 +108,7 @@ registerBlockType("create-block/button-block", {
 		} = props;
 		return (
 			<div
-				className="pageButton"
+				className="buttonBlock"
 				style={{ backgroundColor: color, borderColor: border }}
 			>
 				<a href={url}>{title}</a>

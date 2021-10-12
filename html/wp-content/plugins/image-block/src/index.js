@@ -78,7 +78,7 @@ registerBlockType("create-block/image-block", {
 			attributes: { PhotoURL },
 		} = props;
 		return (
-			<div className="pageImageWrapper">
+			<div className="imageBlock">
 				{PhotoURL && (
 					<img
 						className={"pageImage"}
