@@ -1,0 +1,38 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-page-block {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+
+.textBlock {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.callout-title {
+	font-size: 2.4rem;
+	margin: 1rem 1rem 0rem 2rem;
+}
+.callout-paragraph p {
+	font-size: 1.6rem;
+	align-self: center;
+	margin: 1rem 2rem 1rem 2rem;
+}
+
+@media screen and (min-width: 700px) {
+	.callout-title {
+		font-size: 4rem;
+	}
+	.callout-paragraph p {
+		font-size: 2.4rem;
+	}
+}
