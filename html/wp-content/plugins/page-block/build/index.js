@@ -98,10 +98,11 @@ __webpack_require__.r(__webpack_exports__);
         color
       }
     } = props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("section", {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       style: {
         backgroundColor: color
-      }
+      },
+      className: "pageWrap"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks.Content, null));
   }
 });

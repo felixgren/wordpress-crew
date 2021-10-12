@@ -52,7 +52,7 @@
   padding: 2px;
 }
 
-.pageButton {
+.buttonBlock {
   width: 22rem;
   height: 4.6rem;
   border: none;
@@ -63,7 +63,7 @@
   margin: 2rem;
   border: 2px solid;
 }
-.pageButton a {
+.buttonBlock a {
   color: black;
   align-self: center;
   font-size: 2rem;

@@ -83,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "pageImageWrapper"
+      className: "imageBlock"
     }, PhotoURL && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "pageImage",
       src: PhotoURL,
