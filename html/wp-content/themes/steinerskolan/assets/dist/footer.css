@@ -37,7 +37,7 @@ body {
   font-family: "DMSans-Regular";
   width: 100%;
   background-color: #e1e3e4;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -54,6 +54,7 @@ p {
 @media screen and (min-width: 700px) {
   h1 {
     font-size: 6.4rem;
+    margin: 4rem 0 4rem 2rem;
   }
 }
 footer {

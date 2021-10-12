@@ -10,8 +10,8 @@ const menuLinks = document.querySelectorAll('.menu-links a');
 
 const burgerAnimationIn = (delay) => {
     setTimeout(() => {
-        line1.style.transform = 'rotate(14deg)';
-        line3.style.transform = 'rotate(-14deg)';
+        line1.style.transform = 'translateY(-2.5px) rotate(45deg)';
+        line3.style.transform = 'translateY(2.5px) rotate(-45deg)';
         burger.style.pointerEvents = 'initial';
     }, delay);
 };
