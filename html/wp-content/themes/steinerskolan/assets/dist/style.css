@@ -19,8 +19,12 @@
   src: url(../fonts/DMSans-Italic.woff2?6adf2fe78fe448ae66c4902b93bd06b2) format("woff2");
 }
 @font-face {
-  font-family: "DMSans-Italic";
+  font-family: "DMSans-MediumItalic";
   src: url(../fonts/DMSans-MediumItalic.woff2?f45ac9f0bfd9c5ec303504665eff109c) format("woff2");
+}
+@font-face {
+  font-family: "DMSerif-Display";
+  src: url(../fonts/DMSerifDisplay-Regular.woff2?7d357a746e6021f1a69ad1c671084461) format("woff2");
 }
 * {
   font-size: 10px;
@@ -33,4 +37,21 @@ body {
   font-family: "DMSans-Regular";
   width: 100%;
   background-color: #e1e3e4;
+}
+
+h1 {
+  font-family: "DMSerif-Display";
+  font-weight: 400;
+  font-size: 3.2rem;
+  margin: 1rem 1rem 0rem 2rem;
+}
+
+p {
+  max-width: 75ch;
+}
+
+@media screen and (min-width: 700px) {
+  h1 {
+    font-size: 6.4rem;
+  }
 }
