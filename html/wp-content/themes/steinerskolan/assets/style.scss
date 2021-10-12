@@ -42,8 +42,8 @@ body {
   font-family: "DMSans-Regular";
   width: 100%;
   background-color: $background-color;
+  overflow-x: clip;
 }
-// need to change font"
 
 h1 {
   font-family: "DMSerif-Display";
