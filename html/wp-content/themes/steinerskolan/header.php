@@ -17,8 +17,24 @@
 
 <header> 
     <nav class="header-menu">
-        <ul> 
-            <a class="logo" href="<?= home_url(); ?>">Rudolf Steinerskolan</a>
+    <div class="menu-bar"></div>
+        <div class="burger">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
+        </div>
+        <div class="overlay">
+          <div class="menu-links">
+            <ul>
+              <?php foreach ($menuItems as $item) : ?>
+                <li><a href="<?= $item->url ?>"><?= $item->title ?></a></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
+
+        <a class="logo" href="<?= home_url(); ?>">Rudolf Steinerskolan</a>
+        <ul class="desktop"> 
             <div class="navbar-nav">
             <?php $currentPageId = $wp_query->queried_object_id;
              foreach ($menuItems as $item) : ?>
@@ -28,9 +44,8 @@
             </a>
              </li> 
             <?php endforeach; ?>
-             </ul> 
-            </div>
-    
-        
+          </div>
+        </ul> 
     </nav>
 </header>
+<script src="<?= get_theme_file_uri('assets/js/header.js') ?>"></script>
