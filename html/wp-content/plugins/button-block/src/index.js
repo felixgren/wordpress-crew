@@ -5,7 +5,7 @@ import {
 	ColorPalette,
 	RichText,
 	BlockControls,
-	PlainText,
+	PanelColorSettings,
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 
@@ -13,6 +13,7 @@ import "../../rubriker/src/style.scss";
 import "./style.scss";
 import "./editor.scss";
 import colors from "../../colors";
+import borders from "../../border";
 
 registerBlockType("create-block/button-block", {
 	attributes: {
@@ -27,12 +28,16 @@ registerBlockType("create-block/button-block", {
 			type: "string",
 			default: "#8ed1fc",
 		},
+		border: {
+			type: "string",
+			default: "none",
+		},
 	},
 
 	edit: (props) => {
 		// Attributes
 		const {
-			attributes: { title, url, color },
+			attributes: { title, url, color, border },
 			setAttributes,
 			pageButton,
 			isSelected,
@@ -51,6 +56,10 @@ registerBlockType("create-block/button-block", {
 			setAttributes({ color: value });
 		};
 
+		const onChangeBorder = (value) => {
+			setAttributes({ border: value });
+		};
+
 		return (
 			<div>
 				<InspectorControls>
@@ -61,10 +70,19 @@ registerBlockType("create-block/button-block", {
 							onChange={onChangeColor}
 							colors={colors}
 						></ColorPalette>
+						<p> Set border </p>
+						<ColorPalette
+							value={border}
+							onChange={onChangeBorder}
+							colors={borders}
+						></ColorPalette>
 					</PanelBody>
 					{isSelected && <BlockControls key="controls"></BlockControls>}
 				</InspectorControls>
-				<div {...useBlockProps()} style={{ backgroundColor: color }}>
+				<div
+					{...useBlockProps()}
+					style={{ backgroundColor: color, borderColor: border }}
+				>
 					<RichText
 						className="callout-title"
 						placeholder="Write a title..."
@@ -86,10 +104,13 @@ registerBlockType("create-block/button-block", {
 
 	save: (props) => {
 		const {
-			attributes: { title, url, color },
+			attributes: { title, url, color, border },
 		} = props;
 		return (
-			<div className="pageButton" style={{ backgroundColor: color }}>
+			<div
+				className="pageButton"
+				style={{ backgroundColor: color, borderColor: border }}
+			>
 				<a href={url}>{title}</a>
 			</div>
 		);

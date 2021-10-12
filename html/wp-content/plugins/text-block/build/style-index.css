@@ -31,4 +31,14 @@
   margin: 1rem 2rem 1rem 2rem;
 }
 
+@media screen and (min-width: 700px) {
+  .callout-title {
+    font-size: 4rem;
+  }
+
+  .callout-paragraph p {
+    font-size: 2.4rem;
+  }
+}
+
 /*# sourceMappingURL=style-index.css.map*/

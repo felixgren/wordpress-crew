@@ -21,6 +21,12 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   color: "#66e3ff",
   name: "main background color"
+}, {
+  color: "#000",
+  name: "black color"
+}, {
+  color: "transparent",
+  name: "transparent"
 }]);
 
 /***/ }),
