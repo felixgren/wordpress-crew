@@ -1,8 +1,7 @@
 'use strict'
 
 const burger = document.querySelector('.burger');
-const overlayMobile = document.querySelector('.overlay');
-const menuBar = document.querySelector('.menu-bar')
+const overlayMobile = document.querySelector('.mobile-overlay');
 const line1 = document.querySelector('.line-1');
 const line2 = document.querySelector('.line-2');
 const line3 = document.querySelector('.line-3');
@@ -30,7 +29,6 @@ const burgerAnimationOut = (delay) => {
 
 burger.addEventListener('click', () => {
     overlayMobile.classList.toggle('overlay-visible');
-    menuBar.classList.toggle('menu-bar-visible');
     burger.classList.toggle('animate-burger');
     console.log('burg click')
 

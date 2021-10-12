@@ -37,6 +37,7 @@ body {
   font-family: "DMSans-Regular";
   width: 100%;
   background-color: #e1e3e4;
+  overflow-x: clip;
 }
 
 h1 {

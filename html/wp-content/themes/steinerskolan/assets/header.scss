@@ -1,60 +1,62 @@
 .header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  height: 9.6rem;
+  height: 4rem;
   background-color: white;
   border-end-end-radius: 1rem;
   border-end-start-radius: 1rem;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  // overflow: hidden;
+  @media (min-width: 768px) {
+    height: 9.6rem;
+  }
 }
 
-.navbar-nav {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-}
-ul {
-  list-style: none;
-}
-
-.desktop {
-  display: none;
-}
-
-.navbar-nav li {
-  margin-left: 2rem;
-}
-.nav-link {
-  color: hotpink;
+.logo {
   text-decoration: none;
   font-size: 2.4rem;
+  margin-left: 2rem;
 }
+
+.desktop-links {
+  display: none;;
+  margin-right: 2rem;
+  li {
+    margin-left: 2rem
+  }
+  .link {
+    color: black;
+    text-decoration: none;
+    font-size: 2.4rem;
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+  }
+}
+
 
 .hidden-menu {
   display: none;
 }
 
-.logo {
-  /*
-  align-self: left;
-  align-content: center;
-  float: left; */
-  text-decoration: none;
-  font-size: 2.4rem;
-  margin-left: 1rem;
-}
 
 .burger {
+  display: initial;
   width: 40px;
   height: auto;
   position: fixed;
   right: 12px;
-  top: 20px;
   z-index: 1000;
   cursor: pointer;
   transition: 0.05s;
   margin-top: -1px;
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .line-1,
@@ -67,6 +69,9 @@ ul {
   transition: 0.4s;
   opacity: 1;
   transform-origin: left;
+}
+.line-3 {
+  margin-bottom: 0;
 }
 
 .animate-burger .line-1 {
@@ -81,7 +86,7 @@ ul {
   transform: rotate(-14deg);
 }
 
-.overlay {
+.mobile-overlay {
   height: 100vh;
   width: 100%;
   background-color: black;
@@ -89,31 +94,30 @@ ul {
   z-index: 100;
   display: flex;
   flex-direction: column;
+  align-self: baseline;
   justify-content: space-around;
   align-items: center;
   transition: 500ms;
   transform: translateX(100%);
+
+  a {
+    font-size: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 10px 0;
+    letter-spacing: 0.1em;
+    font-weight: 200;
+    color: white;
+  }
+
+  li {
+    text-align: center;
+  }
 }
 
 .overlay-visible {
   transform: translateX(0vh);
 }
 
-// .menu-links {
-//   display: flex;
-//   flex-direction: column;
-//   margin-top: 50px;
-// }
-
-.menu-links a {
-  font-size: 30px;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  margin: 10px 0;
-  letter-spacing: 0.1em;
-  font-weight: 200;
-  color: white;
-}
 
 /* Nestling doesn't work for some reason */
