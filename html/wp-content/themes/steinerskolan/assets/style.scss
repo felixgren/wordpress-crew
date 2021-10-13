@@ -42,7 +42,8 @@ body {
   font-family: "DMSans-Regular";
   width: 100%;
   background-color: $background-color;
-  overflow-x: clip;
+  // overflow-x: clip;
+  overflow-x: hidden;
 }
 
 h1 {
