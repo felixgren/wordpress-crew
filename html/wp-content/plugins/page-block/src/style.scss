@@ -23,7 +23,7 @@
 	align-content: center;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 1026px) {
 	.pageWrap {
 		display: grid;
 		grid-template-columns: repeat(2, auto);
@@ -41,7 +41,7 @@
 
 	.pageWrap .imageBlock {
 		grid-column: 3;
-		grid-row: 3 / auto;
+		grid-row: 2 / auto;
 		margin-right: 4rem;
 		align-self: flex-start;
 	}
@@ -51,13 +51,19 @@
 		flex-wrap: nowrap;
 		grid-column: 3;
 		margin-right: 4rem;
-		grid-row: 2;
+		grid-row: 3;
 		align-self: flex-end;
 	}
 
 	.pageWrap .buttonBlock:nth-of-type(2) {
-		grid-row: 2;
+		grid-row: 3;
 		align-self: flex-end;
 		margin-bottom: 10rem;
+	}
+
+	.pageWrap .textBlock.right {
+		margin-top: 10rem;
+		grid-column: 3;
+		grid-row: 2;
 	}
 }

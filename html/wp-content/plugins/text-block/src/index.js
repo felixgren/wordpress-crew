@@ -9,8 +9,6 @@ import {
 	FontSizePicker,
 } from "@wordpress/block-editor";
 
-import { Button } from "@wordpress/components";
-
 import "./editor.scss";
 
 import "./style.scss";
@@ -19,8 +17,7 @@ registerBlockType("create-block/text-block", {
 	attributes: {
 		titleSize: {
 			type: "number",
-
-			default: "30px",
+			default: "40px",
 		},
 
 		paragraphSize: {
@@ -31,6 +28,16 @@ registerBlockType("create-block/text-block", {
 
 		alignment: {
 			type: "string",
+		},
+		body: {
+			type: "array",
+			source: "children",
+			selector: ".callout-paragraph",
+		},
+		title: {
+			type: "array",
+			source: "children",
+			selector: ".callout-title",
 		},
 	},
 
@@ -117,7 +124,6 @@ registerBlockType("create-block/text-block", {
 
 	save: (props) => {
 		// Attributes
-
 		const {
 			attributes: { body, title, titleSize, paragraphSize, alignment },
 		} = props;
@@ -133,7 +139,6 @@ registerBlockType("create-block/text-block", {
 
 				<RichText.Content
 					tagName="p"
-					multiline="p"
 					className="callout-paragraph"
 					value={body}
 					style={{ fontSize: paragraphSize }}

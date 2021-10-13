@@ -38,5 +38,11 @@
     height: 36rem;
   }
 }
+@media screen and (min-width: 500px) {
+  .imageBlock {
+    width: 48.6rem;
+    height: 36rem;
+  }
+}
 
 /*# sourceMappingURL=style-index.css.map*/

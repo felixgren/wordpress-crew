@@ -14,16 +14,17 @@ import "./style.scss";
 
 registerBlockType("create-block/image-block", {
 	attributes: {
-		rubrikPhotoURL: {
+		PhotoURL: {
 			type: "string",
-			selector: "img",
-			attribute: "src",
+			selector: ".pageImage",
 		},
 		mediaID: {
 			type: "number",
+			default: 0,
 		},
 		altText: {
 			type: "string",
+			selector: ".pageImage",
 		},
 	},
 
@@ -77,8 +78,6 @@ registerBlockType("create-block/image-block", {
 					)}
 				/>
 				<RichText
-					tagname="div"
-					className="callout-paragraph"
 					placeholder="Please write a desciption for the photo"
 					onChange={onSelectAltText}
 					value={altText}
@@ -93,9 +92,7 @@ registerBlockType("create-block/image-block", {
 		} = props;
 		return (
 			<div className="imageBlock">
-				{PhotoURL && (
-					<img className={"pageImage"} src={PhotoURL} alt={altText} />
-				)}
+				<img className="pageImage" src={PhotoURL} alt={altText} />
 			</div>
 		);
 	},
