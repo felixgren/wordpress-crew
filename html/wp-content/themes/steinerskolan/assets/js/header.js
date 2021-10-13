@@ -6,7 +6,32 @@ const line1 = document.querySelector('.line-1');
 const line2 = document.querySelector('.line-2');
 const line3 = document.querySelector('.line-3');
 
-const menuLinks = document.querySelectorAll('.menu-links a');
+const menuLinks = document.querySelectorAll('.menu-item');
+
+// dropdown desktop
+menuLinks.forEach((link) => {
+    const dataId = link.getAttribute('data-id');
+    const dropdown = document.querySelector(`.dropdown-${dataId}`);
+    
+    if(dropdown) {
+        link.addEventListener('mouseover', () => {
+            dropdown.style.display = 'initial';
+        });
+
+        link.addEventListener('mouseout', () => {
+            dropdown.style.display = 'none';
+        });
+
+        dropdown.addEventListener('mouseover', () => {
+            dropdown.style.display = 'initial';
+        });
+    
+        dropdown.addEventListener('mouseout', () => {
+            dropdown.style.display = 'none';
+        });
+    }
+});
+
 
 const burgerAnimationIn = (delay) => {
     setTimeout(() => {
