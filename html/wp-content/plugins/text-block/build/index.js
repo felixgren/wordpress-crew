@@ -27,10 +27,16 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("create-block/text-block", {
   attributes: {
-    body: {
-      type: "array",
-      source: "children",
-      selector: ".callout-body"
+    titleSize: {
+      type: "number",
+      default: "30px"
+    },
+    paragraphSize: {
+      type: "number",
+      default: "24px"
+    },
+    alignment: {
+      type: "string"
     }
   },
   edit: props => {
@@ -38,7 +44,10 @@ __webpack_require__.r(__webpack_exports__);
     const {
       attributes: {
         body,
-        title
+        title,
+        titleSize,
+        paragraphSize,
+        alignment
       },
       setAttributes,
       isSelected
@@ -56,7 +65,34 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, null)), isSelected && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
+    const setTitleSize = value => {
+      setAttributes({
+        titleSize: value
+      });
+    };
+
+    const setParagraphSize = value => {
+      setAttributes({
+        paragraphSize: value
+      });
+    };
+
+    const onChangeAlignment = newAlignment => {
+      props.setAttributes({
+        alignment: newAlignment === undefined ? "none" : newAlignment
+      });
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, {
+      value: alignment,
+      onChange: onChangeAlignment
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, " title font size "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.FontSizePicker, {
+      value: titleSize,
+      onChange: setTitleSize
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "paragraph font size"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.FontSizePicker, {
+      value: paragraphSize,
+      onChange: setParagraphSize
+    })), isSelected && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
       key: "controls"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       tagName: "h3",
@@ -65,8 +101,7 @@ __webpack_require__.r(__webpack_exports__);
       onChange: onChangeTitle,
       value: title
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-      tagName: "div",
-      multiline: "p",
+      tagName: "p",
       className: "callout-paragraph",
       placeholder: "Write a paragraph…",
       onChange: onChangeContent,
@@ -77,21 +112,30 @@ __webpack_require__.r(__webpack_exports__);
     // Attributes
     const {
       attributes: {
-        PhotoURL,
         body,
-        title
+        title,
+        titleSize,
+        paragraphSize,
+        alignment
       }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "textBlock"
+      className: "textBlock ".concat(alignment)
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "h3",
       className: "callout-title",
-      value: title
+      value: title,
+      style: {
+        fontSize: titleSize
+      }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
-      tagName: "div",
+      tagName: "p",
+      multiline: "p",
       className: "callout-paragraph",
-      value: body
+      value: body,
+      style: {
+        fontSize: paragraphSize
+      }
     }));
   }
 });

@@ -34,6 +34,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     mediaID: {
       type: "number"
+    },
+    altText: {
+      type: "string"
     }
   },
   edit: props => {
@@ -41,7 +44,8 @@ __webpack_require__.r(__webpack_exports__);
     const {
       attributes: {
         mediaID,
-        PhotoURL
+        PhotoURL,
+        altText
       },
       setAttributes,
       pageImage,
@@ -52,6 +56,12 @@ __webpack_require__.r(__webpack_exports__);
       setAttributes({
         PhotoURL: media.url,
         mediaID: media.id
+      });
+    };
+
+    const onSelectAltText = value => {
+      setAttributes({
+        altText: value
       });
     };
 
@@ -69,17 +79,23 @@ __webpack_require__.r(__webpack_exports__);
         onClick: open
       }, !PhotoURL ? ("Upload Image", "Upload image for page") : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
         src: PhotoURL,
-        alt: ("Upload image for page", "page image"),
+        alt: "Upload Image!",
         className: "pageImage"
       }))
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      tagname: "div",
+      className: "callout-paragraph",
+      placeholder: "Please write a desciption for the photo",
+      onChange: onSelectAltText,
+      value: altText
     }));
   },
   save: props => {
     // Attributes
     const {
-      rubrikImages,
       attributes: {
-        PhotoURL
+        PhotoURL,
+        altText
       }
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -87,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
     }, PhotoURL && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "pageImage",
       src: PhotoURL,
-      alt: ("page image", "image for page")
+      alt: altText
     }));
   }
 });
