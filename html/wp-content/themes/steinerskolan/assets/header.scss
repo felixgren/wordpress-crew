@@ -1,4 +1,6 @@
 .header-menu {
+  position: relative;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -89,6 +91,7 @@
 .arrow-icon {
   width: 1.1rem;
   padding-left: 0.6rem;
+  opacity: 0.66;
 }
 
 .hidden-menu {
@@ -128,11 +131,11 @@
 }
 
 .mobile-overlay {
-  height: 100vh;
   width: 100%;
+  height: calc(100vh - 80px);
   background-color: white;
   position: fixed;
-  z-index: 1000000;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-self: baseline;
@@ -140,25 +143,51 @@
   align-items: flex-end;
   transition: 500ms;
   transform: translateX(100%);
-  padding-top: 9.6rem;
+  padding-top: 8rem;
 
   nav {
-    padding-right: 3.2rem;
+    padding: 2rem 5.7rem 3rem;
+    overflow: auto;
+    width: 80%;
   }
 
   li {
     text-align: right;
     list-style-type: none;
-    margin-bottom: 4.8rem;
+    margin-bottom: 3.2rem;
+    display: flex;
+    align-items: center;
   }
 
-  a {
+  img.arrow-icon {
+    padding-left: 1.4rem;
+    margin-right: -2.2rem;
+    width: 1.4rem;
+    opacity: 1;
+  }
+
+  p, a {
     font-size: 28px;
     text-transform: uppercase;
     text-decoration: none;
     text-align: right;
     width: 100%;
     color: black;
+  }
+
+  a {
+    padding-right: 0.8rem;
+  }
+  
+  .subitem {
+    font-size: 2.4rem;
+    text-transform: capitalize;
+    color: #666666;
+    padding-right: 0.6rem;
+  }
+
+  .dropdown-mobile {
+    display: none;
   }
 }
 
