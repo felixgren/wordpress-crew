@@ -13,24 +13,23 @@
   padding: 2px;
 }
 
-.rubrikWrapper {
+.rubrikBlock {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin: 2rem;
   border-radius: 1rem;
   background-color: white;
 }
+.rubrikBlock a {
+  text-decoration: none;
+}
 
 .rubrikImages {
-  -ms-grid-row-align: center;
-      align-self: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  align-self: center;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -38,8 +37,7 @@
 
 .callout-body {
   font-size: 2rem;
-  -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin: 2rem;
 }
 
