@@ -1,5 +1,11 @@
 import { registerBlockType } from "@wordpress/blocks";
-import { MediaUpload, RichText, BlockControls } from "@wordpress/block-editor";
+import {
+	MediaUpload,
+	RichText,
+	BlockControls,
+	InspectorControls,
+	useBlockProps,
+} from "@wordpress/block-editor";
 
 import { Button } from "@wordpress/components";
 
@@ -21,12 +27,18 @@ registerBlockType("create-block/rubriker", {
 			source: "children",
 			selector: ".callout-body",
 		},
+		url: {
+			type: "string",
+		},
+		altText: {
+			type: "string",
+		},
 	},
 
 	edit: (props) => {
 		// Attributes
 		const {
-			attributes: { mediaID, rubrikPhotoURL, body },
+			attributes: { mediaID, rubrikPhotoURL, body, url, altText },
 			setAttributes,
 			rubrikImages,
 
@@ -44,11 +56,23 @@ registerBlockType("create-block/rubriker", {
 		const onChangeContent = (value) => {
 			setAttributes({ body: value });
 		};
+		const onChangeUrl = (value) => {
+			setAttributes({ url: value });
+		};
+		const onSelectAltText = (value) => {
+			setAttributes({ altText: value });
+		};
 
 		return (
 			<div className="rubrikWrapper">
-				{isSelected && <BlockControls key="controls"></BlockControls>}
-				<div className="rubrikImages">
+				<InspectorControls>
+					{isSelected && <BlockControls key="controls"></BlockControls>}
+				</InspectorControls>
+
+				<div {...useBlockProps()} className="rubrikImages">
+					<InspectorControls>
+						{isSelected && <BlockControls key="controls"></BlockControls>}
+					</InspectorControls>
 					<MediaUpload
 						className={rubrikImages}
 						onSelect={onSelectImage}
@@ -60,22 +84,35 @@ registerBlockType("create-block/rubriker", {
 								onClick={open}
 							>
 								{!rubrikPhotoURL ? (
-									("Upload Image", "Upload image for headline")
+									("Upload Image", "Upload image for page")
 								) : (
 									<img
+										className="rubrikImages"
 										src={rubrikPhotoURL}
-										alt={("Upload headline Image", "headline image")}
+										alt={("headline Image", "image for headline")}
 									/>
 								)}
 							</Button>
 						)}
 					/>
 					<RichText
+						placeholder="Please write a desciption for the photo"
+						onChange={onSelectAltText}
+						value={altText}
+					></RichText>
+					<RichText
 						tagName="h3"
 						className="callout-body"
 						placeholder={"Write a title…"}
 						onChange={onChangeContent}
 						value={body}
+					></RichText>
+					<RichText
+						tagName="h3"
+						className="callout-body"
+						placeholder={"Write the page link "}
+						onChange={onChangeUrl}
+						value={url}
 					></RichText>
 				</div>
 			</div>
@@ -85,18 +122,20 @@ registerBlockType("create-block/rubriker", {
 		// Attributes
 		const {
 			rubrikImages,
-			attributes: { rubrikPhotoURL, body },
+			attributes: { rubrikPhotoURL, body, url, altText },
 		} = props;
 		return (
-			<div className="rubrikWrapper">
+			<div className="rubrikBlock">
 				{rubrikPhotoURL && (
-					<img
-						className="rubrikImages"
-						src={rubrikPhotoURL}
-						alt={("headline Image", "image for headline")}
-					/>
+					<img className="rubrikImages" src={rubrikPhotoURL} alt={altText} />
 				)}
-				<RichText.Content tagName="h3" className="callout-body" value={body} />
+				<a href={url}>
+					<RichText.Content
+						tagName="h3"
+						className="callout-body"
+						value={body}
+					/>
+				</a>
 			</div>
 		);
 	},
