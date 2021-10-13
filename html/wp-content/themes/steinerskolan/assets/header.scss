@@ -38,7 +38,7 @@
   display: none;
 
   li {
-    margin-left: 6.4rem;
+    margin-left: 6rem;
     padding: 8px 0;
   }
 
@@ -72,8 +72,10 @@
   padding: 1.6rem 3.2rem;
   background-color: white;
   position: absolute;
-  top: 12rem;
-  // margin-left: -3.2rem;
+  top: 10.2rem;
+  display: flex;
+  flex-direction: column;
+  // margin-left: -16rem;
 }
 
 .hidden-menu {
