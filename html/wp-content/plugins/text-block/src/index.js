@@ -1,31 +1,45 @@
 import { registerBlockType } from "@wordpress/blocks";
+
 import {
-	MediaUpload,
 	RichText,
 	BlockControls,
 	InspectorControls,
 	AlignmentToolbar,
 	useBlockProps,
+	FontSizePicker,
 } from "@wordpress/block-editor";
 
 import { Button } from "@wordpress/components";
 
 import "./editor.scss";
+
 import "./style.scss";
 
 registerBlockType("create-block/text-block", {
 	attributes: {
-		body: {
-			type: "array",
-			source: "children",
-			selector: ".callout-body",
+		titleSize: {
+			type: "number",
+
+			default: "30px",
+		},
+
+		paragraphSize: {
+			type: "number",
+
+			default: "24px",
+		},
+
+		alignment: {
+			type: "string",
 		},
 	},
 
 	edit: (props) => {
 		// Attributes
+
 		const {
-			attributes: { body, title },
+			attributes: { body, title, titleSize, paragraphSize, alignment },
+
 			setAttributes,
 
 			isSelected,
@@ -41,11 +55,45 @@ registerBlockType("create-block/text-block", {
 			setAttributes({ body: value });
 		};
 
+		const setTitleSize = (value) => {
+			setAttributes({ titleSize: value });
+		};
+
+		const setParagraphSize = (value) => {
+			setAttributes({ paragraphSize: value });
+		};
+
+		const onChangeAlignment = (newAlignment) => {
+			props.setAttributes({
+				alignment: newAlignment === undefined ? "none" : newAlignment,
+			});
+		};
+
 		return (
 			<div {...useBlockProps()}>
 				<InspectorControls>
-					<AlignmentToolbar></AlignmentToolbar>
+					<BlockControls>
+						<AlignmentToolbar
+							value={alignment}
+							onChange={onChangeAlignment}
+						></AlignmentToolbar>
+					</BlockControls>
+
+					<p> title font size </p>
+
+					<FontSizePicker
+						value={titleSize}
+						onChange={setTitleSize}
+					></FontSizePicker>
+
+					<p>paragraph font size</p>
+
+					<FontSizePicker
+						value={paragraphSize}
+						onChange={setParagraphSize}
+					></FontSizePicker>
 				</InspectorControls>
+
 				{isSelected && <BlockControls key="controls"></BlockControls>}
 
 				<RichText
@@ -55,9 +103,9 @@ registerBlockType("create-block/text-block", {
 					onChange={onChangeTitle}
 					value={title}
 				></RichText>
+
 				<RichText
-					tagName="div"
-					multiline="p"
+					tagName="p"
 					className="callout-paragraph"
 					placeholder={"Write a paragraph…"}
 					onChange={onChangeContent}
@@ -66,22 +114,29 @@ registerBlockType("create-block/text-block", {
 			</div>
 		);
 	},
+
 	save: (props) => {
 		// Attributes
+
 		const {
-			attributes: { PhotoURL, body, title },
+			attributes: { body, title, titleSize, paragraphSize, alignment },
 		} = props;
+
 		return (
-			<div className="textBlock">
+			<div className={`textBlock ${alignment}`}>
 				<RichText.Content
 					tagName="h3"
 					className="callout-title"
 					value={title}
+					style={{ fontSize: titleSize }}
 				/>
+
 				<RichText.Content
-					tagName="div"
+					tagName="p"
+					multiline="p"
 					className="callout-paragraph"
 					value={body}
+					style={{ fontSize: paragraphSize }}
 				/>
 			</div>
 		);

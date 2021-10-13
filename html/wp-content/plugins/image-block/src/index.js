@@ -4,6 +4,7 @@ import {
 	InspectorControls,
 	BlockControls,
 	useBlockProps,
+	RichText,
 } from "@wordpress/block-editor";
 
 import { Button } from "@wordpress/components";
@@ -21,12 +22,15 @@ registerBlockType("create-block/image-block", {
 		mediaID: {
 			type: "number",
 		},
+		altText: {
+			type: "string",
+		},
 	},
 
 	edit: (props) => {
 		// Attributes
 		const {
-			attributes: { mediaID, PhotoURL },
+			attributes: { mediaID, PhotoURL, altText },
 			setAttributes,
 			pageImage,
 
@@ -39,6 +43,10 @@ registerBlockType("create-block/image-block", {
 				PhotoURL: media.url,
 				mediaID: media.id,
 			});
+		};
+
+		const onSelectAltText = (value) => {
+			setAttributes({ altText: value });
 		};
 
 		return (
@@ -61,30 +69,32 @@ registerBlockType("create-block/image-block", {
 							) : (
 								<img
 									src={PhotoURL}
-									alt={("Upload image for page", "page image")}
+									alt={"Upload Image!"}
 									className={"pageImage"}
 								/>
 							)}
 						</Button>
 					)}
 				/>
+				<RichText
+					tagname="div"
+					className="callout-paragraph"
+					placeholder="Please write a desciption for the photo"
+					onChange={onSelectAltText}
+					value={altText}
+				></RichText>
 			</div>
 		);
 	},
 	save: (props) => {
 		// Attributes
 		const {
-			rubrikImages,
-			attributes: { PhotoURL },
+			attributes: { PhotoURL, altText },
 		} = props;
 		return (
 			<div className="imageBlock">
 				{PhotoURL && (
-					<img
-						className={"pageImage"}
-						src={PhotoURL}
-						alt={("page image", "image for page")}
-					/>
+					<img className={"pageImage"} src={PhotoURL} alt={altText} />
 				)}
 			</div>
 		);
