@@ -41,7 +41,7 @@
   display: none;
 }
 .desktop-links li {
-  margin-left: 6.4rem;
+  margin-left: 6rem;
   padding: 8px 0;
 }
 .desktop-links .link {
@@ -71,7 +71,9 @@
   padding: 1.6rem 3.2rem;
   background-color: white;
   position: absolute;
-  top: 12rem;
+  top: 10.2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .hidden-menu {
