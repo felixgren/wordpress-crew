@@ -18,14 +18,15 @@
   
   <header class="header-menu">
       <a href="/">
-        <img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logoheader.png" alt="Rudolf Steinerskolan logo" />
+        <img class="logo" src="<?= get_stylesheet_directory_uri(); ?>/assets/images/logoheader.png" alt="Rudolf Steinerskolan logo" />
       </a>
 
+      <!-- desktop menu -->
       <nav class="desktop-links">
         <?php $currentPageId = $wp_query->queried_object_id;
 
+        // check if menu item has subitems
         foreach ($menuItems as $item) : ?>
-          <!-- check if menu item has subitems -->
           <?php foreach ($menuItems as $testItem) :
             if($item->ID == $testItem->menu_item_parent) : 
               array_push($subItems, $testItem);
@@ -55,7 +56,7 @@
               <p class="link<?= $item->object_id == $currentPageId ? ' active' : '' ?>">
                 <?= $item->title; ?>
               </p>
-              <img class="arrow-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow.png" alt="Dropdown arrow" />
+              <img class="arrow-icon" src="<?= get_stylesheet_directory_uri(); ?>/assets/images/arrow.png" alt="Dropdown arrow" />
               
               <?php else : ?>
                 <a class="link<?= $item->object_id == $currentPageId ? ' active' : '' ?>" href="<?= $item->url; ?>">
@@ -68,7 +69,8 @@
           endif; endforeach; ?>
       </nav>
 
-      <img class="search" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/searchicon.png" alt="Search" />
+      <!-- mobile menu -->
+      <img class="search" src="<?= get_stylesheet_directory_uri(); ?>/assets/images/searchicon.png" alt="Search" />
       <div class="burger">
         <div class="line-1"></div>
         <div class="line-2"></div>
@@ -78,7 +80,36 @@
       <div class="mobile-overlay">
         <nav>
             <?php foreach ($menuItems as $item) : ?>
-              <li><a href="<?= $item->url ?>"><?= $item->title ?></a></li>
+
+              <?php foreach ($menuItems as $testItem) :
+                if($item->ID == $testItem->menu_item_parent) : 
+                  array_push($subItems, $testItem);
+                endif; 
+              endforeach; ?>
+
+              <!-- main links -->
+              <?php if(!$item->menu_item_parent) : ?>
+                <?php if($subItems) : ?> 
+                  <li class="mobile-menu-item" data-id="<?= $item->ID ?>">
+                    <p><?= $item->title ?></p>
+                    <img class="arrow-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow.png" alt="Dropdown arrow" />
+                  </li>
+                  <?php else : ?>
+                  <li><a href="<?= $item->url ?>"><?= $item->title ?></a></li>
+              <?php endif; endif; ?>
+
+              <!-- submenu dropdown -->
+              <?php if($subItems) : ?> 
+                <div class="dropdown-mobile mobile-dropdown-<?= $item->ID ?>">
+                  <?php foreach ($subItems as $subItem) : ?>
+                    <li>
+                      <a class="subitem" href="<?= $subItem->url ?>"><?= $subItem->title ?></a>
+                    </li>
+                  <?php endforeach; ?>
+                </div>
+              <?php endif; ?>
+
+              <?php $subItems = []; ?>
             <?php endforeach; ?>
         </nav>
       </div>
