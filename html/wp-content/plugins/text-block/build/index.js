@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
   attributes: {
     titleSize: {
       type: "number",
-      default: "30px"
+      default: "40px"
     },
     paragraphSize: {
       type: "number",
@@ -37,6 +37,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     alignment: {
       type: "string"
+    },
+    body: {
+      type: "array",
+      source: "children",
+      selector: ".callout-paragraph"
+    },
+    title: {
+      type: "array",
+      source: "children",
+      selector: ".callout-title"
     }
   },
   edit: props => {
@@ -130,7 +140,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "p",
-      multiline: "p",
       className: "callout-paragraph",
       value: body,
       style: {

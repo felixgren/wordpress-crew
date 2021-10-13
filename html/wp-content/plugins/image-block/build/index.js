@@ -27,16 +27,17 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("create-block/image-block", {
   attributes: {
-    rubrikPhotoURL: {
+    PhotoURL: {
       type: "string",
-      selector: "img",
-      attribute: "src"
+      selector: ".pageImage"
     },
     mediaID: {
-      type: "number"
+      type: "number",
+      default: 0
     },
     altText: {
-      type: "string"
+      type: "string",
+      selector: ".pageImage"
     }
   },
   edit: props => {
@@ -83,8 +84,6 @@ __webpack_require__.r(__webpack_exports__);
         className: "pageImage"
       }))
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-      tagname: "div",
-      className: "callout-paragraph",
       placeholder: "Please write a desciption for the photo",
       onChange: onSelectAltText,
       value: altText
@@ -100,7 +99,7 @@ __webpack_require__.r(__webpack_exports__);
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "imageBlock"
-    }, PhotoURL && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "pageImage",
       src: PhotoURL,
       alt: altText
