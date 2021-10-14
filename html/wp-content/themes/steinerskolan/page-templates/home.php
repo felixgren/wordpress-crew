@@ -3,7 +3,7 @@
 <section class="home">
 
     <div class="hero-wrapper">
-        <img src="<?= get_stylesheet_directory_uri(); ?>/assets/images/examplepic.png" alt="hero" />
+        <img src="<?= get_stylesheet_directory_uri(); ?>/assets/images/examplepic.webp" alt="hero" />
         <h1 class="mobile-title">Välkommen till Rudolf Steinerskolan!</h1>
 
         <div>
