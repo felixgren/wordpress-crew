@@ -57,6 +57,24 @@ p {
     margin: 4rem 0 4rem 2rem;
   }
 }
+.home {
+  padding-top: 36px;
+}
+@media screen and (min-width: 1440px) {
+  .home {
+    padding-top: 48px;
+  }
+}
+
+main {
+  padding-top: 88px;
+}
+@media screen and (min-width: 1440px) {
+  main {
+    padding-top: 120px;
+  }
+}
+
 .hero-wrapper {
   background-color: white;
   display: flex;
